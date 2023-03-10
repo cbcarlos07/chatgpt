@@ -18,7 +18,7 @@ const sendEmail = async data => {
     const us = await userService.findById(data.user)
     const message = us.message.find(m => m._id == data.id)
     const content = template({question: message.question, text: message.answer })
-    mailOptions.to = data.to
+    mailOptions.to = us.email
     mailOptions.html = content
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
