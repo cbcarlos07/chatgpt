@@ -2,12 +2,16 @@
 const mongoose = require('mongoose')
  
 const connect = () => {
-    const host = process.env.MONGO_HOST
-    const port = process.env.MONGO_PORT
-    const database = process.env.MONGO_DATABASE
-    const DB_URL = `mongodb://${host}:${port}/${database}`
     
-    return mongoose.connect(DB_URL)
+    const db_url = process.env.MONGO_URL
+    const DB_URL = db_url
+    
+    return mongoose.connect(DB_URL,{
+        useUnifiedTopology: true,
+        useNewUrlParser: true,
+        //useCreateIndex: true, //make this true
+        autoIndex: true, //make this also true
+    })
 }
 
 module.exports = connect

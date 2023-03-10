@@ -15,8 +15,8 @@ const app = express()
 connectdb()
 app.use(express.json())
 app.use(cors())
-const exclusions =['/']
-//app.use(jwtMiddleware({exclusions}))
+const exclusions =['/', '/auth']
+app.use(jwtMiddleware({exclusions}))
 app.use(routes)
 app.use(init)
 app.use('/user', userRoutes)

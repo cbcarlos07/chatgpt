@@ -4,5 +4,7 @@ const userController = require('../controllers/user-controller')
 
 route.post('/', userController.create)
 route.get('/', userController.all)
+route.get('/:id', userController.findById)
+
 
 module.exports = route
