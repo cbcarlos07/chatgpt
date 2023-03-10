@@ -19,10 +19,12 @@ const prompService = data => {
                             answer: text
                         }
                     }
-                userService.pushMessage(user)
+                const msg = await userService.pushMessage(user)
+                const idx = msg.message.length - 1
                 resolve({
                     success: true,
-                    data: text
+                    data: msg.message[idx].answer,
+                    id: msg.message[idx]._id
                 })
             } catch (error) {
                 console.log('chatgpt', error);

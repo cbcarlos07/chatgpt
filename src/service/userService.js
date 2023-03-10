@@ -35,9 +35,9 @@ module.exports = {
         })
     },
 
-    pushMessage: async (data) => {
-        const rep = await userRep.pushMessage(data.id, data.message)        
-        return rep
+    pushMessage: data => {
+        return userRep.pushMessage(data.id, data.message)        
+        
     },
 
     findById(id){
