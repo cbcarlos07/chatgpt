@@ -6,10 +6,10 @@ module.exports = {
         userService
          .create(req.body)
          .then(data => {
-            res.status(200).json({msg: 'Registro feito com sucesso!', data})
+            res.status(200).json({msg: 'Registro feito com sucesso!', response: data})
          }).catch(err => {
             const keys = Object.keys(err.errors).map(e => {
-                return {[e]: err.errors[e].properties.message}
+                return err.errors[e].properties.message
             })
             res.status(500).json({msg: 'Ops!', errors: keys})
           }

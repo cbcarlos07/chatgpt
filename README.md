@@ -30,3 +30,8 @@ https://discord.com/invite/DEkWDTXJ
 #fizMeuchatGPTnaDIO
 
 Postar no linkedin
+
+
+## Parar porta se estiver em uso
+
+    kill -9 $(lsof -t -i:3000 -sTCP:LISTEN)

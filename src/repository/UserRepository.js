@@ -9,7 +9,7 @@ class UserRepository {
         return User.find()
     }
 
-    auth(data){
+    findOne(data){
         return User.findOne(data, {password: 0})
     }
 
